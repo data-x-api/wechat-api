@@ -21,7 +21,7 @@ from dataxapi import Api, ApiError, need_key
 
 SOURCE = "gh-wechat-api"
 SIGN_UP = f"https://dataxapi.com/zh/signin/?button={SOURCE}"
-PRICE = Decimal("0.02")  # 现价见 https://dataxapi.com/zh/apis/wechat_mp/accounts/articles/list/
+PRICE = Decimal("0.02")  # 现价见 https://dataxapi.com/zh/apis/wechat_mp/accounts/articles/list/?ref=gh-wechat-api
 COLUMNS = ["发布时间", "标题", "链接", "位置", "摘要", "编号"]
 
 
