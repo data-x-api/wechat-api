@@ -56,7 +56,7 @@ DataXAPI 的客户近 30 天里调用最多的几个，从多到少：
 | [微信视频号评论回复](https://dataxapi.com/zh/apis/wechat_channels/comments/replies/list/?ref=gh-wechat-api) | 按评论编号和作品编号取一页视频号评论下面的回复（二级评论）：正文、回复者、点赞数、发布时间、IP 属地、回复的是哪一条。一页约 10 条，可翻页。 | $0.015 一次 | `wechat_channels.comments.replies.list` |
 | [微信视频号直播回放](https://dataxapi.com/zh/apis/wechat_channels/users/live_replays/list/?ref=gh-wechat-api) | 按视频号账号编号取它的直播回放，从新到旧，只给第一页（实测一页最多 48 条）：标题、开播时间、时长、封面，以及回放视频的点赞、评论、转发、收藏数（是回放这条视频的数，不是直播间的观看、在线或点赞人数）。 | $0.02 一次 | `wechat_channels.users.live_replays.list` |
 | [视频号视频下载（文件地址和解密）](https://dataxapi.com/zh/apis/wechat_channels/videos/media/get/?ref=gh-wechat-api) | 给一条视频号作品的编号、分享链接或搜索结果的 export/ 编号，返回视频文件地址（带宽高、大小、时长）、封面，以及解密方法和密钥：视频号的文件只有开头 131072 字节加了密，按 decrypt 给的方法解开就是能播放的 MP4。地址和密钥要用同一次返回的那一对，不用带请求头；地址失效了再调一次即可。 | $0.02 一次 | `wechat_channels.videos.media.get` |
-| [视频号视频转文字（逐字稿）](https://dataxapi.com/zh/apis/wechat_channels/videos/transcript/get/?ref=gh-wechat-api) | 给一条视频号作品的分享链接、编号或搜索结果的 export/ 编号，返回视频里说的话：全文、每一句的起止时间和现成的 SRT 字幕，连同文案、作者和时长；可以区分说话人。视频号文件的解密由我们完成，不用自己处理。每次收费，识别语音的另按视频分钟数收，没人说话不收。只接 5 分钟以内的视频。超过 5 分钟、2 小时以内的视频先回一个凭证（job），过一会儿带着它再调这个接口取文字，价格一样，只在取到文字时收。 | $0.02 一次 | `wechat_channels.videos.transcript.get` |
+| [视频号视频转文字（逐字稿）](https://dataxapi.com/zh/apis/wechat_channels/videos/transcript/get/?ref=gh-wechat-api) | 给一条视频号作品的分享链接、编号或搜索结果的 export/ 编号，返回视频里说的话：全文、每一句的起止时间和现成的 SRT 字幕，连同文案、作者和时长；可以区分说话人。视频号文件的解密由我们完成，不用自己处理。每次收费，识别语音的另按视频分钟数收，没人说话不收。5 分钟以内的视频直接返回文字；超过 5 分钟、2 小时以内的先回一个凭证（job），过一会儿带着它再调这个接口取文字，按实际分钟数收，只在取到文字时收。 | $0.02 一次 | `wechat_channels.videos.transcript.get` |
 
 ### 微信搜一搜、微信指数和小程序
 
@@ -189,4 +189,4 @@ No platform account, cookie or QR login. Paid per call from $0.015; errors are n
 
 MIT
 
-<sub>接口和价格取自 DataXAPI 的目录 dc959672dd18e2d0、价格版本 21；以 [dataxapi.com/zh/apis](https://dataxapi.com/zh/apis/?ref=gh-wechat-api) 为准。</sub>
+<sub>接口和价格取自 DataXAPI 的目录 e43c3e964bcc3fc3、价格版本 21；以 [dataxapi.com/zh/apis](https://dataxapi.com/zh/apis/?ref=gh-wechat-api) 为准。</sub>
