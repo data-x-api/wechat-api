@@ -2,7 +2,7 @@
 
 **公众号文章 API · 公众号历史文章 · 公众号阅读数 · 公众号评论 · 视频号数据 · 视频号作品和评论 · 微信搜一搜 · 微信指数**
 
-这个仓库是 [DataXAPI](https://dataxapi.com/zh/?ref=gh-wechat-api) 的微信接口说明和能直接跑的脚本：31 个接口，一把 Key，按次付费，$0.015 起，**出错不收费**。不用登录平台账号，不用 Cookie，不开浏览器。
+这个仓库是 [DataXAPI](https://dataxapi.com/zh/?ref=gh-wechat-api) 的微信接口说明和能直接跑的脚本：33 个接口，一把 Key，按次付费，$0.015 起，**出错不收费**。不用登录平台账号，不用 Cookie，不开浏览器。
 
 [免费拿 Key：试用最多 333 次，不用绑卡](https://dataxapi.com/zh/signin/?button=gh-wechat-api) · [全部接口文档](https://dataxapi.com/zh/apis/?ref=gh-wechat-api) · [接进 AI（MCP）](#接进-aimcp) · [English](#english)
 
@@ -23,7 +23,7 @@ DataXAPI 的客户近 30 天里调用最多的几个，从多到少：
 | [微信视频号用户作品](https://dataxapi.com/zh/apis/wechat_channels/users/videos/list/?ref=gh-wechat-api) | 按视频号账号编号取一页它发布的视频，从新到旧：文案、发布时间、点赞、评论、转发、收藏数、视频时长。 | $0.02 一次 |
 | [微信视频号账号搜索](https://dataxapi.com/zh/apis/wechat_channels/users/search/?ref=gh-wechat-api) | 按名称找视频号账号：名称要一字不差，同名的都返回。给账号编号、名称、简介、头像、是否认证和认证信息；账号编号可以传给视频号的资料、作品列表、直播回放等接口。 | $0.06 一次 |
 
-## 全部 31 个接口
+## 全部 33 个接口
 
 ### 公众号
 
@@ -35,6 +35,8 @@ DataXAPI 的客户近 30 天里调用最多的几个，从多到少：
 | [微信公众号文章互动数据](https://dataxapi.com/zh/apis/wechat_mp/articles/metrics/?ref=gh-wechat-api) | 按文章长链接取这篇公众号文章此刻的数字：阅读、点赞、推荐、分享、收藏、评论。 | $0.02 一次 | `wechat_mp.articles.metrics` |
 | [微信公众号资料](https://dataxapi.com/zh/apis/wechat_mp/accounts/get/?ref=gh-wechat-api) | 按公众号原始编号取资料：名称、IP 属地、原创文章数、关联的视频号、是否被封禁。 | $0.02 一次 | `wechat_mp.accounts.get` |
 | [微信公众号文章评论](https://dataxapi.com/zh/apis/wechat_mp/articles/comments/list/?ref=gh-wechat-api) | 按文章链接取一页公众号文章的精选评论：正文、评论者、点赞数、回复数、发布时间、IP 属地、是否置顶。 | $0.02 一次 | `wechat_mp.articles.comments.list` |
+| [微信公众号文章详情和互动数据](https://dataxapi.com/zh/apis/wechat_mp/articles/full/get/?ref=gh-wechat-api) | 按文章长链接一次取一篇公众号文章的正文和此刻的数字：标题、正文、发布时间、公众号，以及阅读、点赞、推荐、分享、收藏、评论数，不用分两次调。 | $0.04 一次 | `wechat_mp.articles.full.get` |
+| [微信公众号低粉爆文榜](https://dataxapi.com/zh/apis/wechat_mp/articles/trending/?ref=gh-wechat-api) | 按天取公众号低粉爆文榜：近 3、7 或 30 天发的文章里，阅读数远超本号平时水平的，按爆文分排好，带阅读、点赞、推荐、分享、评论数和高出平时的倍数。 | $0.06 一次 | `wechat_mp.articles.trending` |
 | [微信公众号评论回复](https://dataxapi.com/zh/apis/wechat_mp/comments/replies/list/?ref=gh-wechat-api) | 按评论编号和文章链接取公众号文章一条评论下面的回复：正文、回复者、点赞数、发布时间、IP 属地、回复的是哪一条。只给前面的一批，不翻页。 | $0.02 一次 | `wechat_mp.comments.replies.list` |
 | [微信公众号账号搜索](https://dataxapi.com/zh/apis/wechat_mp/accounts/search/?ref=gh-wechat-api) | 按名字或关键词找公众号，最像的排前面：原始编号、微信号、名称、头像、主体名称，和第三方数据库的预估活跃粉丝、头条平均阅读和点赞、每周发文数（估计值，非官方，可能滞后数月）。按条计费，limit 定条数（默认 5，最多 15）。只要编号不要估计值，用按次计费的 wechat.accounts.search 更省。 | 每条 $0.05635，一次最多 $0.84525 | `wechat_mp.accounts.search` |
 | [微信公众号主体信息](https://dataxapi.com/zh/apis/wechat_mp/accounts/owner/get/?ref=gh-wechat-api) | 按公众号原始编号取它的主体（背后的公司、机构或个人）：名称、类型、登记证照号码、国家或地区、认证状态、种类和日期，以及公众号的注册日期、授权过的第三方服务商。 | $0.1 一次 | `wechat_mp.accounts.owner.get` |
@@ -189,4 +191,4 @@ No platform account, cookie or QR login. Paid per call from $0.015; errors are n
 
 MIT
 
-<sub>接口和价格取自 DataXAPI 的目录 0264e2d6dd4ff743、价格版本 23；以 [dataxapi.com/zh/apis](https://dataxapi.com/zh/apis/?ref=gh-wechat-api) 为准。</sub>
+<sub>接口和价格取自 DataXAPI 的目录 830e89056c23be6e、价格版本 40；以 [dataxapi.com/zh/apis](https://dataxapi.com/zh/apis/?ref=gh-wechat-api) 为准。</sub>
